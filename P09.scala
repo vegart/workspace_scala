@@ -22,23 +22,26 @@ object P09 extends App{
     retLis.reverse
   }
 
-  def pack(lis : List[Any]) : List[Any]  = {
-    var retLis = List[Any]();
-    var tempLis = List[Any]();
-    val compressed = compress(lis);
+//  def pack(lis : List[Any]) : List[Any]  = {
+//    var retLis = List[Any]();
+//    var tempLis = List[Any]();
+//    val compressed = compress(lis);
+//
+//    for(matcher <- compressed){
+//      for(elem <- lis){
+//        if(elem == matcher)  tempLis = elem :: tempLis;
+//      }
+//      retLis = retLis ::: List(tempLis)
+//      tempLis = Nil
+//    }
+//    retLis
+//  }
 
-    for(matcher <- compressed){
-      for(elem <- lis){
-        if(elem == matcher)  tempLis = elem :: tempLis;
-      }
-      retLis = retLis ::: List(tempLis)
-      tempLis = Nil
-    }
-    retLis
+
+    def pack[A](xs:List[A]):List[List[A]] = xs match {
+      case h :: t => xs.takeWhile(_ == h) :: pack(xs.dropWhile(_ == h))
+      case Nil => Nil
   }
-
-
-
 
 print(  pack(List('a','a','b','c','d','d','d','e','f','g','g','h','h','h','i')))
 
