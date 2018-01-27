@@ -10,7 +10,6 @@ object P23 extends App{
       if(update.length == len) update
       else{
         val rand = scala.util.Random.nextInt(sourceList.length)
-        print("here   : ") ; println((sourceList take rand):::(sourceList drop rand+1))
         omg(len, (sourceList take rand):::(sourceList drop rand+1), (sourceList take rand+1).reverse.head :: update)
       }
     }
