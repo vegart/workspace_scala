@@ -18,6 +18,5 @@ object P27 extends App {
       lis.filter(!x2.flatten.contains(_)).combinations(4).toList.flatMap(y2=>List(x2:::List(y2))))
   }
   val x = group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
-  println(x.length)
-  println(x)
+
 }
